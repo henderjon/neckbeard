@@ -1,7 +1,8 @@
 {{ partial "header.html" . }}
 	<section>
+		<h2>{{ .Data.Singular | title }}: {{ .Data.Term }}</h2>
 		<div>
-		{{ range (where .Data.Pages "Type" "post").GroupByDate "2006-01" }}
+		{{ range .Data.Pages.GroupByDate "2006-01" }}
 			<h3 id="{{ .Key }}">{{ .Key }}</h3>
 			<ul>
 				{{ range .Pages }}
@@ -11,5 +12,4 @@
 		{{ end }}
 		</div>
 	</section>
-{{ partial "social.html" . }}
 {{ partial "footer.html" . }}
